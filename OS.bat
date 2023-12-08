@@ -1,7 +1,7 @@
 
 @echo off
 cls
-Title FixFusion v 1.0
+Title FixFusion v 1.1
 color 19
 
 :Boot
@@ -22,16 +22,20 @@ cls
 :PlaySound
 powershell -c "(New-Object Media.SoundPlayer 'Windows Logon.wav').PlaySync()"
 
+:User
+echo Please enter your Username
+set /p user=
 
 :Choose a Session
 echo Welcome to FixFusion version 1.0! Your Computer Fixing Hub!
-echo [===================================================================================]
-echo [   Chosce your Session...                                                          ]
-echo [      A.Administrator   B.System  Note:The System accoount has Less Privileges...  ]
-echo [===================================================================================]
+echo [==========================================================================================]
+echo [   Chosce your Session...                                                                 ]
+echo [      A.Administrator   B.System  Note:The System accoount has Less Privileges... C.%user%]
+echo [==========================================================================================]
 set /p input=
 if /i %input%==A goto Login
 if /i %input%==B goto Login2
+if /i %input%==C goto Login
 cls
 
 
